@@ -1,12 +1,11 @@
 """비밀번호 해시(bcrypt) + JWT(HS256, 24h)."""
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 
 import bcrypt
 import jwt
 
 from app.config import JWT_ALG, JWT_EXPIRE_HOURS, JWT_SECRET
 from app.errors import AppError
-from app.utils import now_kst
 
 
 def hash_password(plain: str) -> str:
@@ -23,7 +22,8 @@ def verify_password(plain: str, hashed: str) -> bool:
 
 
 def create_access_token(user_id: int) -> str:
-    now = now_kst()
+    # JWT iat/exp는 실제 UTC 기준 (만료 정확도). KST 표시용 시각과 분리.
+    now = datetime.now(timezone.utc)
     payload = {
         "sub": str(user_id),
         "iat": now,
