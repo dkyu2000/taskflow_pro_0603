@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>TaskFlow</title>
+    <script src="js/api.js"></script>
+    <script>
+      // 진입점: 토큰 있으면 칸반(추가 분기), 없으면 로그인
+      location.replace(Auth.get() ? "kanban.html" : "login.html");
+    </script>
+  </head>
+  <body></body>
+</html>

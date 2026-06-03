@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>팀 선택 · TaskFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 min-h-screen">
+    <header class="bg-white border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+        <span class="text-teal-600 font-bold">TaskFlow</span>
+        <div class="text-sm text-slate-500">
+          <span id="email"></span>
+          <button onclick="logout()" class="ml-3 text-slate-600 hover:text-slate-900">로그아웃</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+      <div class="bg-sky-50 border border-sky-200 text-sky-800 text-sm rounded-lg px-4 py-3 mb-6">
+        ℹ 아직 팀에 소속되지 않았습니다. 팀을 만들거나 초대코드로 합류하세요.
+      </div>
+
+      <div id="created" class="hidden bg-white rounded-2xl border border-emerald-200 p-6 mb-6">
+        <p class="text-emerald-700 font-semibold mb-3">✓ 팀이 생성되었습니다!</p>
+        <p class="text-sm text-slate-500">초대코드 (멤버에게 공유)</p>
+        <div class="flex items-center gap-2 my-2">
+          <code id="invite" class="text-2xl font-bold tracking-widest text-teal-600 border border-teal-200 rounded-lg px-4 py-3 flex-1 text-center"></code>
+          <button id="copy" class="bg-slate-700 text-white text-sm px-3 py-3 rounded-lg">복사</button>
+        </div>
+        <button onclick="location.href='kanban.html'"
+          class="w-full mt-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg py-2.5">칸반 시작하기 →</button>
+      </div>
+
+      <div id="forms" class="grid md:grid-cols-2 gap-4">
+        <section class="bg-white rounded-2xl border border-slate-200 p-6">
+          <h2 class="font-bold text-slate-800 mb-4 text-center">+ 새 팀 만들기</h2>
+          <input id="teamName" maxlength="30" placeholder="팀 이름 (1–30자)"
+            class="w-full border border-slate-300 rounded-lg px-3 py-2.5 mb-2 focus:outline-none focus:ring-2 focus:ring-teal-500" />
+          <div id="createErr" class="hidden text-sm text-red-600 mb-2"></div>
+          <button id="createBtn" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg py-2.5">만들기</button>
+        </section>
+
+        <section class="bg-white rounded-2xl border border-slate-200 p-6">
+          <h2 class="font-bold text-slate-800 mb-4 text-center">초대코드로 합류</h2>
+          <input id="code" maxlength="9" placeholder="FRNT-2026"
+            class="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-center tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-teal-500" />
+          <p class="text-xs text-slate-400 my-2 text-center">형식: 대문자 4 + 숫자 4 (하이픈 포함)</p>
+          <div id="joinErr" class="hidden text-sm text-red-600 mb-2"></div>
+          <button id="joinBtn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg py-2.5">합류</button>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/team-select.js"></script>
+  </body>
+</html>

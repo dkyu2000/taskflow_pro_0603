@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>팀 멤버 · TaskFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 min-h-screen">
+    <header class="bg-white border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-teal-600 font-bold">TaskFlow</span>
+          <span id="teamName" class="text-slate-500 text-sm"></span>
+        </div>
+        <nav class="flex gap-1 text-sm">
+          <a href="kanban.html" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100">칸반</a>
+          <a href="chat.html" class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100">채팅</a>
+          <a href="members.html" class="px-3 py-1.5 rounded-lg bg-teal-600 text-white">멤버</a>
+        </nav>
+        <div class="text-sm text-slate-500">
+          <span id="email"></span>
+          <button onclick="logout()" class="ml-3 text-slate-600 hover:text-slate-900">로그아웃</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-bold text-slate-800">팀 멤버 <span id="count" class="text-slate-400"></span></h2>
+          <button id="leave" class="text-sm border border-red-300 text-red-600 rounded-lg px-3 py-1.5 hover:bg-red-50">팀 떠나기</button>
+        </div>
+        <ul id="list" class="divide-y divide-slate-100"></ul>
+        <div id="msg" class="hidden text-sm mt-3"></div>
+      </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/members.js"></script>
+  </body>
+</html>

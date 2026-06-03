@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>회원가입 · TaskFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-sm bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+      <div class="flex justify-center mb-6">
+        <span class="bg-teal-600 text-white font-bold px-4 py-2 rounded-lg">TaskFlow</span>
+      </div>
+      <h1 class="text-xl font-bold text-center text-slate-800 mb-6">회원가입</h1>
+
+      <form id="form" class="space-y-3" novalidate>
+        <input id="email" type="email" placeholder="이메일 입력" autocomplete="username"
+          class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-teal-500" />
+        <input id="password" type="password" placeholder="비밀번호 (8자 이상)" autocomplete="new-password"
+          class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-teal-500" />
+        <div id="error" class="hidden text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2"></div>
+        <button id="submit" type="submit"
+          class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg py-2.5 transition disabled:opacity-60">
+          가입하기
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-slate-500 mt-5">
+        이미 계정이 있으신가요? <a href="login.html" class="text-teal-600 font-medium">로그인</a>
+      </p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/signup.js"></script>
+  </body>
+</html>
