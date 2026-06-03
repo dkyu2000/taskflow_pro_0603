@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local SQLite (운영은 Neon — 로컬 DB는 커밋 제외)
+taskflow.db
+*.db
+*.db-journal
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel/
+
+# Node (Tailwind 빌드 사용 시)
+node_modules/
+
+# Claude local-only settings
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
